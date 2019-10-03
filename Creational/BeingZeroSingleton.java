@@ -1,10 +1,10 @@
 
 class BasicSingleton{
 
-    private static BasicSingleton _instance;
+    private static BasicSingleton _instance = new BasicSingleton();
 
     private BasicSingleton(){
-        _instance = new BasicSingleton();
+        //_instance = new BasicSingleton();
     }
 
     public static BasicSingleton getInstance(){
@@ -13,19 +13,18 @@ class BasicSingleton{
 
 }
 
+// javac BeingZeroSingleton.java
+// java -ea BeingZeroSingleton
+// java –enableassertions BeingZeroSingleton
+// https://www.geeksforgeeks.org/assertions-in-java
+
 public class BeingZeroSingleton{
 
     public static void main(String args[]){
         BasicSingleton first = BasicSingleton.getInstance();
         BasicSingleton second = BasicSingleton.getInstance();
 
-        if(first==second){
-            System.out.println("Same Objects");
-        }
-        else{
-            System.out.println("Different Objects");
-
-        }
+        assert (first==second);
     }
 
 }
